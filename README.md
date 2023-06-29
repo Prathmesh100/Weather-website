@@ -1,4 +1,4 @@
-# Weather-App
+# Weather-Website
 
 https://weather-website-js-p.netlify.app/
 
