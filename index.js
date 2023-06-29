@@ -5,12 +5,19 @@ const searchform=document.querySelector("[data-searchForm]");
 const userInfoContainer=document.querySelector(".user-info-container");
 const grantAccessContainer=document.querySelector(".grant-location");
 const loadingScreen=document.querySelector(".loading-container");
+
+const notFound = document.querySelector('.errorContainer');
+const errorBtn = document.querySelector('[data-errorButton]');
+const errorText = document.querySelector('[data-errorText]');
+const errorImage = document.querySelector('[data-errorImg]');
+
 let currentTab=userTab;
 const apiKey = "b011256391b9bdc7060a41426c6c37c7";
 
 currentTab.classList.add("current-tab");
-
+getfromSessionStorage(); 
 function swithTab(clickedTab) {
+    notFound.classList.remove("active");
     if(clickedTab!=currentTab)
     {
         currentTab.classList.remove("current-tab");
@@ -91,6 +98,9 @@ async function fetchUserweatherInfo(coordinates)
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
         const data = await response.json();
         console.log(data);
+        if (!data.sys) {
+            throw data;
+        }
 
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
@@ -99,6 +109,11 @@ async function fetchUserweatherInfo(coordinates)
     catch(err)
     {
         loadingScreen.classList.remove("active");
+        notFound.classList.add('active');
+        errorImage.style.display = 'none';
+        errorText.innerText = `Error: ${err?.message}`;
+        errorBtn.style.display = 'block';
+        errorBtn.addEventListener("click", fetchUserweatherInfo);
     }
 }
 
@@ -147,15 +162,25 @@ async function fetchSearchWeatherInfo(cityName)
     loadingScreen.classList.add("active");
     userInfoContainer.classList.remove("active");
     grantAccessContainer.classList.remove("active");
+    notFound.classList.remove("active");
     try{
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`);
         const data = await response.json();
         console.log(data);
+
+        if (!data.sys) {
+            throw data;
+        }
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
     }
     catch(err) {
-
+        console.log("inside catch")
+        loadingScreen.classList.remove('active');
+        userInfoContainer.classList.remove('active');
+        notFound.classList.add('active');
+        errorText.innerText = `${err?.message}`;
+        errorBtn.style.display = "none";
     }
 }
