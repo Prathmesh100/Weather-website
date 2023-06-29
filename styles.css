@@ -146,6 +146,7 @@
 {
     display: none;
 }
+
 .user-info-container.active
 {
     display: flex;
@@ -278,7 +279,25 @@
     border-radius: 100%;
     margin: 0;
 }
+.errorContainer {
+    display: none;
+}
 
+.errorContainer.active {
+    display: flex;
+    gap: 1rem 0;
+}
+
+.errorContainer p {
+    text-align: center;
+}
+
+.errorContainer img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
 @media screen and (max-width: 480px) {
     .card-container {
     display: flex;
