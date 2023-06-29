@@ -1,0 +1,291 @@
+*,*::before,*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'merriweather Sans',sans-serif;
+    overflow-x: hidden;
+}
+
+:root{
+    --colorDark1: #112D4E;
+    --colorDark2: #3f72af;
+    --colorLight1: #dbe2ef;
+    --colorLight2: #f9f7f7;
+}
+
+#wrapper
+{
+    width: 100vw;
+   height: 120vh;
+    color: var(--colorLight2);
+    background-image: url(./Images/Home.jpg);
+    background-size: cover;
+    
+}
+
+.title{
+    color: #FFF;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 4.0625rem;
+    padding-top: 20px;
+}
+.hl
+{
+    background-image: linear-gradient(#CAECFF, #78CFFF);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.tab-container
+{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 550px;
+    margin-top: 4rem;
+    
+}
+
+.tab
+{
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.75px;
+    padding: 5px 8px;
+    transition: 500ms;
+    border-radius: 10px;
+}
+
+.tab.current-tab{
+   border-radius:10px;
+    background: #24343D;
+    box-shadow: 10px 10px 30px 0px rgba(36, 52, 61, 0.60) inset;
+    padding: 15px;
+    
+}
+
+
+.weather-container
+{
+   margin-block: 4rem;
+}
+.btn
+{
+    background-color: var(--colorDark2);
+    border: none;
+    color: #dbe2ef;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sub-container
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.grant-location
+{
+    display: none;
+}
+.grant-location.active
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grant-location img{
+    margin-bottom: 2rem;
+}
+.grant-location p:first-of-type
+{
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.grant-location p:last-of-type
+{
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.75px;
+}
+
+.loading-container
+{
+    display: none;
+}
+.loading-container.active{
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+    align-items: center;
+
+}
+.loading-container p{
+    text-transform: uppercase;
+}
+
+.user-info-container
+{
+    display: none;
+}
+.user-info-container.active
+{
+    display: flex;
+    
+}
+
+.name
+{
+    display: flex;
+    align-items: center;
+    gap:0 0.5rem;
+    margin-top: 1rem;
+}
+.user-info-container p{
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.user-info-container img
+{
+    width: 90px;
+    height: 90px;
+}
+
+.name p{
+    font-size: 2rem;
+}
+
+.name img{
+    width: 30px;
+    height: 30px;
+}
+
+
+.user-info-container p[data-temp]
+{
+    font-size: 2.7rem;
+    font-weight: 700;
+}
+
+.card-container
+{
+    display: flex;
+    gap:10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.card
+{
+    width: 326px;
+    display: inline-flex;
+    padding: 12.5rem 3.25rem 1.25rem 3.25rem;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1.25rem;
+    background: #24353E;
+    box-shadow: 10px 9px 70px 0px rgba(36, 53, 62, 0.40);
+    padding: 1rem 2rem;
+}
+
+.card img{
+
+    width: 10rem;
+    height: 10rem;
+}
+
+.card p:first-of-type
+{
+    text-transform: uppercase;
+    font-size: 1.15rem ;
+    font-weight: 600;
+}
+
+.card p:last-of-type{
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.form-container
+{
+    display: none;
+    
+}
+
+.form-container.active
+{
+    display: flex;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+    margin-bottom: 3rem;
+
+}
+
+.form-container input
+{
+    all:unset;
+    width: calc((100%-80px));
+    height: 40px;
+    padding: 0 20px;
+    background: #24343D;
+    box-shadow: 10px 10px 30px 0px rgba(36, 52, 61, 0.60) inset;    
+    border-radius: 10px;
+}
+
+.form-container input::placeholder
+{
+    color: white;
+}
+.form-container :focus
+{
+    border: 3px solid rgba(255, 255, 255, 0.384);
+}
+
+
+.form-container .btn
+{
+    padding: unset;
+    width: 40px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+    .card-container {
+    display: flex;
+     flex-direction: column;
+    }
+    .card{
+        width: 500px;
+    }
+    
+  }
