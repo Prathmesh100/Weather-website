@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./Images/pngwing.com.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Website</title>
+     <!-- Link Font  -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+       rel="stylesheet"
+     />
+ 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -76,7 +85,14 @@
 
 
         </div>
+         <!-- Location Not Found -->
+         <div class="errorContainer sub-container">
+            <img src="./Images/not-found.png" data-errorImg />
+            <p data-errorText></p>
+            <button class="btn" data-errorButton>Retry Now</button>
+          </div>
     </section>
+        
 </div>
 <script src="index.js"></script>
 </body>
